@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <a href="/">Home</a> |
+        <a href="/expenses">Expenses</a> |
+        <a href="/todo">To-Do</a> |
+        <a href="/quiz">Quiz</a> |
+        <a href="/chatbot">Chatbot</a> |
+        <a href="/weather">Weather</a>
+    </nav>
+
+    <!-- Content block -->
+    {% block content %}{% endblock %}
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
