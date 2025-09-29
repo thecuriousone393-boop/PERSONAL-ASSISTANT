@@ -16,37 +16,39 @@ It includes 5 modules: **Expense Tracker, To-Do List, Quiz Game, Chatbot, and We
 
 ## 📂 Project Structure
 
-SmartAssistant/
-│── app.py # Main Flask app
-│── config.py # Config file (DB + API keys)
-│── requirements.txt # Dependencies
-│── README.md # Documentation
+SmartAssistant/                # Root folder of your project
 │
-├── modules/ # Backend modules
-│ ├── db_init.py
-│ ├── expense_tracker.py
-│ ├── todo.py
-│ ├── quiz.py
-│ ├── chatbot.py
-│ └── weather.py
+├── app.py                     # Main Flask app (routes + app initialization)
+├── config.py                  # Configurations (DB path + API keys)
+├── requirements.txt           # Project dependencies
+├── README.md                  # Documentation
 │
-├── templates/ # HTML Templates
-│ ├── base.html
-│ ├── index.html
-│ ├── expenses.html
-│ ├── todo.html
-│ ├── quiz.html
-│ ├── chatbot.html
-│ ├── weather.html
-│ └── error.html
+├── modules/                   # Backend logic (Python modules)
+│   ├── db_init.py             # Creates SQLite tables if not exist
+│   ├── expense_tracker.py     # Handles Expense Tracker logic
+│   ├── todo.py                # Handles To-Do List logic
+│   ├── quiz.py                # Stores quiz questions + logic
+│   ├── chatbot.py             # Chatbot rules + DB logging
+│   └── weather.py             # Weather API fetch logic
 │
-└── static/ # Static files
-├── style.css
-└── script.js
+├── templates/                 # Frontend (HTML templates for Flask)
+│   ├── base.html              # Common layout (Navbar, footer, etc.)
+│   ├── index.html             # Homepage (links to all modules)
+│   ├── expenses.html          # Expense Tracker page
+│   ├── todo.html              # To-Do List page
+│   ├── quiz.html              # Quiz Game page
+│   ├── chatbot.html           # Chatbot page
+│   ├── weather.html           # Weather page
+│   └── error.html             # Error display page
+│
+└── static/                    # Static files (CSS, JS, Images)
+    ├── style.css              # Custom styling
+    ├── script.js              # JS (AJAX for chatbot, weather, quiz)
+    └── assets/                # (Optional) images/icons
 
 
 
-🧠 Basic Logic Behind Each Module
+## 🧠 Basic Logic Behind Each Module
 1️⃣ Expense Tracker
 
 Data stored in SQLite table expenses.
@@ -119,7 +121,7 @@ If API key missing or city invalid → return error message.
 
 
 
-🖥️ Usage
+## 🖥️ Usage
 
 Home Page → Navigate to different modules.
 
@@ -135,7 +137,7 @@ Weather → Enter city name → Fetch weather details.
 
 
 
-🧩 Future Improvements
+## 🧩 Future Improvements
 
 User authentication (login/signup)
 
