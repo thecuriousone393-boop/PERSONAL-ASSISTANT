@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Chatbot</h2>
+
+<input type="text" id="userMessage" placeholder="Type your message">
+<button onclick="sendMessage()">Send</button>
+
+<div id="chatBox"></div>
+
+<script>
+function sendMessage() {
+    let message = document.getElementById("userMessage").value;
+    fetch("/chatbot", {
+        method: "POST",
+        headers: {"Content-Type": "application/x-www-form-urlencoded"},
+        body: "message=" + encodeURIComponent(message)
+    })
+    .then(response => response.json())
+    .then(data => {
+        let chatBox = document.getElementById("chatBox");
+        chatBox.innerHTML += `<p><b>You:</b> ${message}</p>`;
+        chatBox.innerHTML += `<p><b>Bot:</b> ${data.reply}</p>`;
+    });
+}
+</script>
+{% endblock %}
