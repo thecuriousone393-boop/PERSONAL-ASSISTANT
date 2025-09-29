@@ -16,36 +16,57 @@ It includes 5 modules: **Expense Tracker, To-Do List, Quiz Game, Chatbot, and We
 
 ## 📂 Project Structure
 
-SmartAssistant/                # Root folder of your project
-│
-├── app.py                     # Main Flask app (routes + app initialization)
-├── config.py                  # Configurations (DB path + API keys)
-├── requirements.txt           # Project dependencies
-├── README.md                  # Documentation
-│
-├── modules/                   # Backend logic (Python modules)
-│   ├── db_init.py             # Creates SQLite tables if not exist
-│   ├── expense_tracker.py     # Handles Expense Tracker logic
-│   ├── todo.py                # Handles To-Do List logic
-│   ├── quiz.py                # Stores quiz questions + logic
-│   ├── chatbot.py             # Chatbot rules + DB logging
-│   └── weather.py             # Weather API fetch logic
-│
-├── templates/                 # Frontend (HTML templates for Flask)
-│   ├── base.html              # Common layout (Navbar, footer, etc.)
-│   ├── index.html             # Homepage (links to all modules)
-│   ├── expenses.html          # Expense Tracker page
-│   ├── todo.html              # To-Do List page
-│   ├── quiz.html              # Quiz Game page
-│   ├── chatbot.html           # Chatbot page
-│   ├── weather.html           # Weather page
-│   └── error.html             # Error display page
-│
-└── static/                    # Static files (CSS, JS, Images)
-    ├── style.css              # Custom styling
-    ├── script.js              # JS (AJAX for chatbot, weather, quiz)
-    └── assets/                # (Optional) images/icons
+-Main folder name: SmartAssistant
 
+-->Inside it, create these files:
+
+-app.py (main file to run the app)
+
+-config.py (settings like API keys and database path)
+
+-requirements.txt (list of required Python packages)
+
+-README.md (project documentation)
+
+-->Create a folder named modules → put these files inside:
+
+db_init.py
+
+expense_tracker.py
+
+todo.py
+
+quiz.py
+
+chatbot.py
+
+weather.py
+
+-->Create a folder named templates → put these HTML files inside:
+
+base.html
+
+index.html
+
+expenses.html
+
+todo.html
+
+quiz.html
+
+chatbot.html
+
+weather.html
+
+error.html
+
+-->Create a folder named static → put design files inside:
+
+style.css (for CSS styles)
+
+script.js (for JavaScript)
+
+optionally a subfolder called assets for images/icons
 
 
 ## 🧠 Basic Logic Behind Each Module
