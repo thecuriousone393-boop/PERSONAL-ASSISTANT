@@ -3,7 +3,7 @@ import requests
 from config import OPENWEATHER_API_KEY
 
 def get_weather_by_city(city):
-    if not OPENWEATHER_API_KEY or OPENWEATHER_API_KEY == "YOUR_OPENWEATHER_API_KEY":
+    if not OPENWEATHER_API_KEY or OPENWEATHER_API_KEY == "d894d5d60393272a1885ab6e6eed3ab6":
         return {"error": "No API key. Set OPENWEATHER_API_KEY in config.py"}
     if not city:
         return {"error": "City name required"}
