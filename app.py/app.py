@@ -1,16 +1,16 @@
-from flask import Flask, render_template,request,jsonify
+from flask import Flask, render_template, request, jsonify
 import random
 
 app=Flask(__name__)
 
 tasks = []
 
-jokes_list = [
+JOKES = [
     "Why don’t scientists trust atoms? Because they make up everything! 😆",
     "Teacher: Why are you late? Student: Because of the sign on the road. Teacher: What sign? Student: 'School Ahead, Go Slow!' 😂",
     "Why was the math book sad? Because it had too many problems 📘😢",
     "Pappu: 'Mom, can I have money for the school trip?' Mom: 'Sure beta, where are you going?' Pappu: 'To the canteen.' 🤭",
-    "Why did the computer go to the doctor? Because it caught a virus 🖥️🤒"
+    "Why did the computer go to the doctor? Because it caught a virus 🖥️🤒",
     "Santa: 'Do you know why Indians don’t play hide and seek?' Banta: 'Why?' Santa: 'Because no one can hide when aunties are around asking ‘Beta, shaadi kab karoge?’ 🤣",
     "Teacher: 'Where is Taj Mahal?' Student: 'In WhatsApp DP of every second person!' 📱😂",
     "Pappu in exam: 'Can I have marks for neat handwriting?' Teacher: 'Beta, this is a math paper, not calligraphy!' ✍️🤣",
@@ -95,18 +95,17 @@ def delete_task():
 @app.route('/weather')
 def weather():
     return render_template('weather.html')
+
+
 @app.route('/fun')
 def fun():
     return render_template('fun.html')
 
 
-# Sample jokes (you can add more later)
-
-
-@app.route('/fun')
-def jokes():
-    joke = random.choice(jokes)
-    return render_template("fun.html", joke)
+@app.route('/fun/get_joke')
+def get_random_joke():
+    joke = random.choice(JOKES)
+    return jsonify({"joke": joke})
 
 if __name__ == "__main__":
     app.run(debug=True)
@@ -129,4 +128,3 @@ def expenses():
     data = expense_tracker.get_expenses()
     return render_template("expenses.html", expenses=data)
     
-
