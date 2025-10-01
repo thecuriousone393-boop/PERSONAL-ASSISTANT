@@ -73,6 +73,9 @@ def delete_task():
         return jsonify({"message": "Task deleted!", "tasks": tasks})
     return jsonify({"message": "Task not found!"}), 404
 
+
+
+
 @app.route('/weather')
 def weather():
     return render_template('weather.html')
