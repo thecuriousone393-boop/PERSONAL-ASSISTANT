@@ -1,5 +1,72 @@
-{% extends "base.html" %}
-{% block content %}
-<h2>to do</h2>
-<p>Coming soon...</p>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f9; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        #todo-container { width: 400px; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+        ul { list-style-type: none; padding: 0; }
+        li { padding: 8px; margin: 5px 0; background: #eee; border-radius: 5px; display: flex; justify-content: space-between; align-items: center; }
+        button { cursor: pointer; background: red; color: white; border: none; padding: 5px 10px; border-radius: 5px; }
+        button:hover { background: darkred; }
+    </style>
+</head>
+<body>
+    <div id="todo-container">
+        <h2>To-Do List ✅</h2>
+        <input type="text" id="task-input" placeholder="Enter a task...">
+        <button onclick="addTask()">Add</button>
+        <ul id="task-list"></ul>
+    </div>
+
+    <script>
+        const taskList = document.getElementById("task-list");
+        const taskInput = document.getElementById("task-input");
+
+        function fetchTasks() {
+            fetch("/get_tasks")
+            .then(res => res.json())
+            .then(data => {
+                taskList.innerHTML = "";
+                data.tasks.forEach(task => {
+                    const li = document.createElement("li");
+                    li.textContent = task;
+                    const delBtn = document.createElement("button");
+                    delBtn.textContent = "Delete";
+                    delBtn.onclick = () => deleteTask(task);
+                    li.appendChild(delBtn);
+                    taskList.appendChild(li);
+                });
+            });
+        }
+
+        function addTask() {
+            const task = taskInput.value.trim();
+            if (!task) return;
+            fetch("/add_task", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ task: task })
+            })
+            .then(() => {
+                taskInput.value = "";
+                fetchTasks();
+            });
+        }
+
+        function deleteTask(task) {
+            fetch("/delete_task", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ task: task })
+            })
+            .then(() => fetchTasks());
+        }
+
+        // Load tasks on page load
+        fetchTasks();
+    </script>
+</body>
+</html>
