@@ -103,10 +103,10 @@ def fun():
 # Sample jokes (you can add more later)
 
 
-@app.route('/fun')
-def jokes():
-    joke = random.choice(jokes)
-    return render_template("fun.html", joke)
+@app.route('/fun/get_joke')
+def get_random_joke():
+    joke = random.choice(jokes_list)
+    return jsonify({"joke": joke})
 
 if __name__ == "__main__":
     app.run(debug=True)
