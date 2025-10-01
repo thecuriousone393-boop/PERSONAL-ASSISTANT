@@ -1,26 +1,39 @@
-import sqlite3
-from config import DB_NAME
+from flask import Flask, render_template, request, jsonify
 
-def get_response(user_message):
-    user_message = user_message.lower()
-    
-    # Simple keyword-based responses
-    if "hello" in user_message or "hi" in user_message:
-        response = "Hello! How can I help you?"
-    elif "time" in user_message:
-        import datetime
-        response = f"The current time is {datetime.datetime.now().strftime('%H:%M:%S')}"
-    elif "joke" in user_message:
-        response = "Why did the programmer go broke? Because he used up all his cache!"
+app = Flask(__name__)
+
+# Home page
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+# Chatbot page
+@app.route('/chatbot')
+def chatbot_page():
+    return render_template('chatbot.html')
+
+# API for chatbot responses
+@app.route('/get_response', methods=['POST'])
+def get_response():
+    user_input = request.json.get("message")  # get message from frontend
+
+    # Simple logic for chatbot replies (you can expand later)
+    if "hello" in msg or "hi" in msg:
+        bot_reply = "Hello 👋! How can I assist you today?"
+    elif "bye" in msg:
+        bot_reply = "Goodbye! Have a great day 😊"
+    elif "how are you" in msg:
+        bot_reply = "I’m doing great, thanks for asking! How about you?"
+    elif "your name" in msg:
+        bot_reply = "I’m your smart assistant 🤖."
+    elif "weather" in msg:
+        bot_reply = "You can check the Weather page in the app 🌦️."
+    elif "expense" in msg:
+        bot_reply = "Head over to the Expense Tracker page 💰."
+    elif "todo" in msg or "task" in msg:
+        bot_reply = "Your To-Do List is waiting! ✅"
     else:
-        response = "Sorry, I don't understand."
+        bot_reply = "Hmm 🤔 I don’t know that yet, but I’ll learn soon!"
+    return jsonify({"reply": bot_reply})
 
-    # Save chat to database
-    conn = sqlite3.connect(DB_NAME)
-    c = conn.cursor()
-    c.execute("INSERT INTO chatbot_logs (user_message, bot_response) VALUES (?, ?)",
-              (user_message, response))
-    conn.commit()
-    conn.close()
 
-    return response
