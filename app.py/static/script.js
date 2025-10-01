@@ -1,21 +1,22 @@
 // static/script.js
 document.addEventListener('DOMContentLoaded', function(){
-  // QUIZ
-  document.querySelectorAll('.opt').forEach(btn => {
+  document.querySelectorAll('.fun-btn').forEach(btn => {
     btn.addEventListener('click', function(){
-      const qblock = this.closest('.qblock');
-      const qid = parseInt(qblock.dataset.qid);
-      const chosen = parseInt(this.dataset.idx);
-      fetch('/quiz/check', {
-        method: 'POST',
-        headers: {'Content-Type':'application/json'},
-        body: JSON.stringify({qid: qid, chosen: chosen})
-      }).then(r => r.json()).then(data => {
-        if(data.error){ qblock.querySelector('.result').textContent = 'Error'; return; }
-        qblock.querySelector('.result').textContent = data.correct ? 'Correct ✅' : 'Wrong ❌';
-      });
+        const funBlock = this.closest('.fun-block');
+        fetch('/fun/get_joke')
+            .then(response => response.json())
+            .then(data => {
+                funBlock.querySelector('.result').textContent = data.joke;
+            })
+            .catch(err => {
+                funBlock.querySelector('.result').textContent = 'Oops! Something went wrong 😅';
+                console.error(err);
+            });
     });
-  });
+});
+
+
+
 
   // CHATBOT
   const chatForm = document.getElementById('chatForm');

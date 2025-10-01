@@ -1,8 +1,24 @@
 from flask import Flask, render_template,request,jsonify
+import random
 
 app=Flask(__name__)
 
 tasks = []
+
+jokes_list = [
+    "Why don’t scientists trust atoms? Because they make up everything! 😆",
+    "Teacher: Why are you late? Student: Because of the sign on the road. Teacher: What sign? Student: 'School Ahead, Go Slow!' 😂",
+    "Why was the math book sad? Because it had too many problems 📘😢",
+    "Pappu: 'Mom, can I have money for the school trip?' Mom: 'Sure beta, where are you going?' Pappu: 'To the canteen.' 🤭",
+    "Why did the computer go to the doctor? Because it caught a virus 🖥️🤒"
+    "Santa: 'Do you know why Indians don’t play hide and seek?' Banta: 'Why?' Santa: 'Because no one can hide when aunties are around asking ‘Beta, shaadi kab karoge?’ 🤣",
+    "Teacher: 'Where is Taj Mahal?' Student: 'In WhatsApp DP of every second person!' 📱😂",
+    "Pappu in exam: 'Can I have marks for neat handwriting?' Teacher: 'Beta, this is a math paper, not calligraphy!' ✍️🤣",
+    "Santa ordered pizza. Waiter: 'Sir, should I cut it into 6 pieces or 8?' Santa: '6 is fine, I can’t eat 8 pieces.' 🍕😂",
+    "Bollywood version of Physics: Every action has an equal and opposite overacting! 🎬🤣",
+    "Indian Dad after seeing electricity bill: 'Beta, are you running a disco at home?' 💡😂",
+    "Wife: 'Listen, the doorbell is ringing.' Husband: 'So? We didn’t invite anyone.' Wife: 'Amazon delivery!' Husband: 'I’M COMINGGG!' 📦😂",
+]
 
 @app.route('/')
 def home():
@@ -79,9 +95,22 @@ def delete_task():
 @app.route('/weather')
 def weather():
     return render_template('weather.html')
-@app.route('/quiz')
-def quiz():
-    return render_template('quiz.html')
+@app.route('/fun')
+def fun():
+    return render_template('fun.html')
+
+
+# Sample jokes (you can add more later)
+
+
+@app.route('/fun')
+def jokes():
+    joke = random.choice(jokes)
+    return render_template("fun.html", joke)
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

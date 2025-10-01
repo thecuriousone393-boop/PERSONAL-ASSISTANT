@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fun Corner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container fun-block">
+        <h2>🤣 Fun Corner</h2>
+        <div class="result">Click the button to get a joke!</div>
+        <button class="fun-btn">Tell me a joke 😂</button>
+        <br><br>
+        <a href="{{ url_for('home') }}">Go Home</a>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

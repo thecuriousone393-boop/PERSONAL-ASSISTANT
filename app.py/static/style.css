@@ -11,3 +11,34 @@ table, th, td { border:1px solid #ddd; padding:8px; }
 .chat-user { color: blue; }
 .chat-bot { color: green; }
 button { cursor:pointer; }
+.fun-block {
+  background-color: #fff8e1;
+  border: 2px solid #ffca28;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  margin: 20px auto;
+  width: 400px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.fun-btn {
+  background-color: #ff7043;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.fun-btn:hover {
+  background-color: #f4511e;
+}
+
+.result {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #424242;
+}
