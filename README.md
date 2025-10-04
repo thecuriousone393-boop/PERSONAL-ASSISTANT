@@ -8,7 +8,7 @@ It includes 5 modules: **Expense Tracker, To-Do List, Quiz Game, Chatbot, and We
 ## 🚀 Features
 - **Expense Tracker** → Add, view, and delete expenses, with total calculation.  
 - **To-Do List** → Add tasks, mark them as done, or delete them.  
-- **Quiz Game** → Answer MCQs with instant feedback.  
+- **Fun corner** → Place to relax and have Fun.  
 - **Chatbot** → Simple rule-based chatbot with logging.  
 - **Weather Info** → Fetch live weather by city (uses OpenWeather API).  
 
@@ -98,13 +98,11 @@ Delete task → Remove row by id.
 
 3️⃣ Quiz Game
 
-Questions are stored in a Python list (quiz.py).
+Multiple fun games are added>
 
-Each question = {id, question, options[], answer_index}.
+joke box -> displays random jokes when 'get joke' button in pressed.
 
-User clicks option → JS sends choice → Flask checks if chosen index == answer.
-
-Returns {"correct": True/False} → Display result instantly.
+guess the number -> starts a game where user has to guess the number between '1 to 10'.
 
 4️⃣ Chatbot
 
@@ -150,7 +148,7 @@ Expenses → Enter title, amount, category, and date → Add expense.
 
 To-Do → Add tasks → Mark done or delete.
 
-Quiz → Click an option → See if it’s correct or wrong.
+Fun -> Relax and play fun games.
 
 Chatbot → Send a message → Get bot response.
 
