@@ -1,7 +1,7 @@
 # 🧑‍💻 Smart Personal Assistant (Flask Project)
 
 An **All-in-One Smart Personal Assistant App** built with **Flask, SQLite, HTML, CSS, and JavaScript**.  
-It includes 5 modules: **Expense Tracker, To-Do List, Quiz Game, Chatbot, and Weather Info**.
+It includes 5 modules: **Expense Tracker, To-Do List, Fun corner, Chatbot, and Weather Info**.
 
 ---
 
