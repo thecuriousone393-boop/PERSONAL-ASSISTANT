@@ -1,7 +1,10 @@
 from flask import Flask, render_template,request,jsonify
 import random
+from guess import guess_bp
 
 app=Flask(__name__)
+
+app.register_blueprint(guess_bp)
 
 tasks = []
 

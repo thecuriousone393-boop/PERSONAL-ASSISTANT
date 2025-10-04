@@ -32,8 +32,28 @@ button { cursor:pointer; }
   font-size: 16px;
 }
 
+.fun-block:hover {
+    transform: scale(1.03);
+}
+
+
+.fun-block a:hover {
+    background-color: #9b00b3;
+}
+
+
 .fun-btn:hover {
-  background-color: #f4511e;
+  background-color: #f49b1e;
+}
+
+.fun-block a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
 }
 
 .result {
@@ -42,3 +62,46 @@ button { cursor:pointer; }
   font-weight: 500;
   color: #424242;
 }
+.fun-corner {
+    display: flex;
+    flex-direction: column;   /* Stack boxes vertically */
+    gap: 40px;                /* Space between boxes */
+    align-items: center;      /* Center boxes horizontally */
+    justify-content: center;
+    margin: 30px auto;
+    width: 100%;
+}
+
+.fun-box {
+    border: 2px solid #333;
+    border-radius: 12px;
+    padding: 20px;
+    width: 300px;             /* Fixed width for consistency */
+    text-align: center;
+    background-color: #f9f9f9;
+    transition: transform 0.2s;
+}
+
+.fun-box:hover {
+    transform: scale(1.03);
+}
+
+.fun-box h3 {
+    margin-bottom: 10px;
+}
+
+.fun-box a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.fun-box a:hover {
+    background-color: #9b00b3;
+}
+
+

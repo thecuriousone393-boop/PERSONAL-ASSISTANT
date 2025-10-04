@@ -6,12 +6,23 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    <div class="container">
+    <div class="fun-corner">
     <div class="container fun-block">
         <h2>🤣 Fun Corner</h2>
         <div class="result">Click the button to get a joke!</div>
         <button class="fun-btn">Tell me a joke 😂</button>
-        <br><br>
+        <br></br>
         <a href="{{ url_for('home') }}">Go Home</a>
+    </div>
+
+    <div class="fun-box">
+        <h3>🎯 Guess the Number</h3>
+        <p>Try to guess a number between 1 and 10!</p>
+        <a href="/guess">Play Now</a>
+        <a href="{{ url_for('home') }}">Go Home</a>
+    </div>
+    </div>
     </div>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
